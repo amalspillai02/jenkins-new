@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage('git_connection'){
+            steps{
+                git url: 'https://<username:<token>@github.com/<username>/<repo-name>.git', branch: 'main'
+            }
+        }
+        stage('copying'){
+            steps{
+                sh 'echo "8520" | sudo -S cp -r maker /var/www/html'
+            }
+        }
+        stage('restarting_service'){
+            steps{
+                sh 'echo "8520" | sudo -S systemctl restart apache2'
+            }
+        }
+    }
+}
