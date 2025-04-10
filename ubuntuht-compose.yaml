@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  ubuntu2:
+    image: ubuntuht
+    container_name: ubuntuapache
+    ports:
+    - "7455:80"
