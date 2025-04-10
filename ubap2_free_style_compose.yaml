@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  ubuntu2:
+    image: ubap2_img
+    container_name: ubuntuap2
+    ports:
+    - "8520:80"
