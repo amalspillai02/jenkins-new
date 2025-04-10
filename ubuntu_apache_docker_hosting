@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage('git_connection'){
+            steps{
+                git url: 'https://<username>:<token>@github.com/<username>/<repo>.git', branch: 'main'
+            }
+        }
+        stage('docker_image_build'){
+            steps{
+                sh 'echo "8520" | sudo -S docker build -f ubuntuht -t ubuntuht_img .'
+            }
+        }
+        stage('container_creation'){
+            steps{
+                sh 'echo "8520" | sudo -S docker compose -f ubuntuht-compose.yaml up -d'
+            }
+        }
+    }
+}
