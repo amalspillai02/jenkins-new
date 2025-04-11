@@ -2,6 +2,6 @@ version: "3.8"
 services:
   ubuntu2:
     image: ubuntuht_img
-    container_name: ubuntuapache-new
+    container_name: ubuntuapache-new2
     ports:
-    - "7455:80"
+    - "7456:80"
